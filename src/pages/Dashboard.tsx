@@ -3,7 +3,6 @@ import { Users, DollarSign, TrendingDown, Wallet, CheckCircle, XCircle, Send } f
 import { StatCard } from '@/components/ui/StatCard'
 import { useStats, usePayslipDistributions, useSendPayslips } from '@/hooks/useEmployees'
 import { Skeleton } from '@/components/ui/Skeleton'
-import { formatCurrency } from '@/lib/utils'
 
 export function Dashboard() {
   const { data: stats, isLoading: isStatsLoading } = useStats()
