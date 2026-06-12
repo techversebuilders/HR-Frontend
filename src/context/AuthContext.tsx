@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react'
-import axios from 'axios'
+import { api } from '@/lib/api'
 import { API_ENDPOINTS } from '@/lib/endpoints'
 
 export interface AuthData {
@@ -52,7 +52,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const login = async (id: string, password: string): Promise<AuthData> => {
     // Make POST call to http://127.0.0.1:8000/api/login/
     // Since proxy maps /api to http://127.0.0.1:8000, calling /api/login/ is appropriate
-    const response = await axios.post<AuthData>(`/api${API_ENDPOINTS.LOGIN}`, {
+    const response = await api.post<AuthData>(API_ENDPOINTS.LOGIN, {
       id,
       password,
     })

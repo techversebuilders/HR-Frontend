@@ -1,7 +1,8 @@
 import axios from 'axios'
 import { API_ENDPOINTS } from './endpoints'
 
-export const api = axios.create({ baseURL: '/api' })
+const BASE_URL = import.meta.env.VITE_API_URL || (import.meta.env.DEV ? '/api' : 'https://backend-a0rw.onrender.com/api')
+export const api = axios.create({ baseURL: BASE_URL })
 
 api.interceptors.request.use(
   (config) => {
